@@ -1,35 +1,66 @@
+:root {
+    --bg: #1d1d1dff;
+
+    /* Card */
+    --border-radius: 15px;
+    --cardHeight: 35rem;
+    --font-family: 'Georgia', sans-serif;
+
+    /* Front card */
+    --card-front-background-color: #0093E9;
+    --card-front-background-image: linear-gradient(45deg, #1e97dd 0%, #60d8ca 100%);
+
+    /* Back card */
+    --card-back-background-color: #4158D0;
+    --card-back-background-image: linear-gradient(45deg, #4158ca 0%,#c94bc0 50%, #ffca67 100%);
+}
+
+body {
+    background: var(--bg);
+}
+
 .card {
+    font-family: var(--font-family);
+    font-size: 1.5rem;
+
     perspective: 150rem;
     position: relative;
-    height: 40rem;
-    max-width: 400px;
-    margin: 2rem;
+    
+    height: var(--cardHeight);
+    width: 90%;
+    min-width: 20rem;
+
+    margin: 1rem;
+
     box-shadow: none;
     background: none;
 }
 
 .card .card-face {
-    height: 35rem;
-    border-radius: 15px;
+
+    border-radius: var(--border-radius);
     transition: all 0.8s ease;
     backface-visibility: hidden;
+    
     position: absolute;
     top: 0;
     left: 0;
-    width: 80%;
+    right: 0;
+    bottom: 0;
+    
     padding:2rem;
     color: white
 }
 
-.card .back {
-    transform: rotateY(-180deg);
-    background-color: #4158D0;
-    background-image: linear-gradient(43deg, #4158D0 0%,#C850C0 46%, #FFCC70 100%);
+.card .front {
+    background-color: var(--card-front-background-color);
+    background-image: var(--card-front-background-image);
 }
 
-.card .front {
-    background-color: #0093E9;
-    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+.card .back {
+    transform: rotateY(-180deg);
+    background-color: var(--card-back-background-color);
+    background-image: var(--card-back-background-image);
 }
 
 .card:hover .front {
@@ -38,4 +69,9 @@
 
 .card:hover .back {
     transform: rotateY(0deg);
+}
+
+.textLabel {
+    display: flex;
+    justify-content: center;
 }
