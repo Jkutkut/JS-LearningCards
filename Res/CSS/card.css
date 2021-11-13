@@ -1,14 +1,16 @@
 :root {
     --bg: #1d1d1dff;
+    --margin: 1rem;
 
     /* Card */
     --border-radius: 15px;
     --cardHeight: 35rem;
     --font-family: 'Georgia', sans-serif;
+    --font-color: white;
 
     /* Front card */
     --card-front-background-color: #0093E9;
-    --card-front-background-image: linear-gradient(45deg, #1e97dd 0%, #60d8ca 100%);
+    --card-front-background-image: linear-gradient(45deg, #1e97dd 0%, #58f1e0 100%);
 
     /* Back card */
     --card-back-background-color: #4158D0;
@@ -17,20 +19,20 @@
 
 body {
     background: var(--bg);
+    font-family: var(--font-family);
+    font-size: 1.5rem;
+    color: var(--font-color);
 }
 
 .card {
-    font-family: var(--font-family);
-    font-size: 1.5rem;
-
     perspective: 150rem;
     position: relative;
     
     height: var(--cardHeight);
-    width: 90%;
+    /* width: 90%; */
     min-width: 20rem;
 
-    margin: 1rem;
+    margin: var(--margin);
 
     box-shadow: none;
     background: none;
@@ -49,7 +51,6 @@ body {
     bottom: 0;
     
     padding:2rem;
-    color: white
 }
 
 .card .front {
