@@ -1,17 +1,36 @@
--e <!DOCTYPE html><html>
+<!DOCTYPE html><html>
 	<head>
-		<meta charset=\"utf-8\">
+		<meta charset="utf-8">
 
 		<!-- Logo & title -->
-		<title>$repoName</title>
-		<!-- <link rel=\"icon\" href=\"\"> -->
+		<title>Learning Card</title>
+		<!-- <link rel="icon" href=""> -->
 
 		<!-- CSS -->
-		<link rel=\"stylesheet\" type=\"text/css\" href=\"res/style.css\">
+		<link rel="stylesheet" type="text/css" href="./Res/CSS/card.css">
 
 		<!-- JS -->
-		<script src=\"sketch.js\"></script>
+		<script src="./Res/JS/cssLogic.js"></script>
 	</head>
 	<body>
+		<div class="card">
+			<div class="card-face front">
+				<div class="question">
+					<div class="questionText textLabel">
+						<p>This is the question</p>
+					</div>
+				</div>
+				<!-- <div class="response">
+					<input type="text" class="responseText" placeholder="Type your answer...">
+				</div> -->
+			</div>
+			<div class="card-face back">
+				<div class="answer">
+					<div class="answerText textLabel">
+						<p>This is the response</p>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
