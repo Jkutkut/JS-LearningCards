@@ -29,11 +29,9 @@ window.onload = () => {
 
     data = localStorage['learningCardsData'];
     if (data) {
-        data = JSON.parse(data); // convert to object
-        
         let continueBtn = document.getElementsByClassName("continueData")[0];
         continueBtn.addEventListener('click', () => {
-            nextCard();
+            data = JSON.parse(data); // convert to object
             startCardMenu();
         });
     }
@@ -57,8 +55,14 @@ function attemptLoadFile(fileList) {
 
     const reader = new FileReader();
     reader.addEventListener('load', (event) => {
+        // get file content
         data = JSON.parse(event.target.result);
+
+        // save data to local storage
+        localStorage['learningCardsData'] = event.target.result;
+
         console.log("Data loaded", data);
+        startCardMenu();
     });
     reader.readAsText(f);
 }
@@ -92,12 +96,13 @@ function cssByClass(className, property, value=null) {
 
 
 function startCardMenu() {
+    nextCard();
+
     cssByClass("cardMenu", "display", "flex");
     cssByClass("loadMenu", "display", "none");
 
     // When element with class newCardBtn pressed
     document.onclick = nextCard;
-    console.log(cssByClass("card"));
 }
 
 
@@ -113,7 +118,6 @@ function nextCard() {
     let answer = a.getElementsByTagName("p")[0];
 
     let random = Math.floor(Math.random() * data.questions.length);
-    console.log(random);
 
     question.innerHTML = data.questions[random].q;
     answer.innerHTML = data.questions[random].a;
