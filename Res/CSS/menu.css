@@ -12,13 +12,13 @@
     height: 5rem;
 }
 
-.loadMenuBar div {
+.menuBtn {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     
-    width: 50%;
+    width: var(--w, 50%);
     min-width: 12rem;
     height: 100%;
     
@@ -31,8 +31,8 @@
     transition: all 0.3s ease;
 }
 
-.loadMenuBar div:hover {
-    transform: scale(1.1);
+div .menuBtn:hover {
+    transform: scale(1.05);
 }
 
 .newData {
@@ -80,4 +80,9 @@
     opacity: 0.5;
     border: 0.2rem solid black;
     border-radius: var(--border-radius);
+}
+
+.createQuestions {
+    --w: 100%;
+    margin-top: 4rem;
 }
