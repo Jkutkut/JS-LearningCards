@@ -18,20 +18,55 @@ window.onload = () => {
         console.log(fileList);
     });
 
+    // When loadQuestionsBtn pressed, load questions
+    let loadQuestionsBtn = document.getElementById("loadQuestionsBtn");
+    loadQuestionsBtn.addEventListener('change', readSingleFile, false);
+
     if (data) {
         data = JSON.parse(data); // convert to object
+        
+        let continueBtn = document.getElementsByClassName("continueData")[0];
+        continueBtn.addEventListener('click', () => {
+            nextCard();
+            startCardMenu();
+        });
     }
-    else {
+    else { // If previous session not found
         console.log("Previous sesion not found.");
-        // cssByClass("continueData", "display", "none");
 
-        // When loadQuestionsBtn pressed, load questions
-        // document.getElementById("loadQuestionsBtn").onclick = () => {
-            // Ask user for a file
-        // }
+        // Hide continue data button
+        cssByClass("continueData", "display", "none");
 
-        // startCardMenu();
     }
+}
+
+function readSingleFile(e) {
+    const file = e.target.files[0];
+    if (!file) { // If no file selected
+        return;
+    }
+
+    // if file is not a json file
+    if (!file.name.endsWith(".json") || file.type != "application/json") {
+        alert("Please select a json file with the data.");
+        return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        let contents = e.target.result;
+        let d = JSON.parse(contents);
+
+        if (!validQuestions(d)) {
+            alert("Invalid file. The file must contain the questions.");
+            return;
+        }
+
+        localStorage['learningCardsData'] = contents;
+        console.log(data);
+        startCardMenu();
+    };
+    reader.readAsText(file);
 }
 
 

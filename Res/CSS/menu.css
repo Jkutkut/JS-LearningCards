@@ -9,13 +9,14 @@
 .loadMenuBar {
     display: flex;
     flex-direction: row;
-
+    height: 5rem;
 }
 
 .loadMenuBar div {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     
     width: 50%;
     min-width: 12rem;
@@ -37,6 +38,27 @@
 .newData {
     margin: var(--margin);
     margin-left: 0;
+}
+
+.newData input[type="file"] {
+    position: absolute;
+
+    /* Place the input (with the classic "choose file no file chosen"
+    out of the screen */
+    top: -10000px;
+}
+
+.newData label {
+    /* background: red; */
+    height: 100%;
+    width: 100%;
+}
+
+.newData div {
+    height: 100%;
+    width: 100%;
+    background: none;
+    transform: none;
 }
 
 .continueData {
