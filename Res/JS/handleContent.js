@@ -2,7 +2,7 @@ var data;
 var ite;
 var mouseOver = true;
 
-window.onload = () => {
+window.addEventListener('load', () => {
     // Drag and drop logic
     document.addEventListener("dragover", (event) => {
         event.stopPropagation();
@@ -76,7 +76,7 @@ window.onload = () => {
         },
         false
     );
-}
+});
 
 function attemptLoadFile(fileList) {
     let f = fileList[0];
