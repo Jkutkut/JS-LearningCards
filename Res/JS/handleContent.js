@@ -1,5 +1,5 @@
 var data;
-
+var ite;
 
 window.onload = () => {
     // Drag and drop logic
@@ -96,6 +96,7 @@ function cssByClass(className, property, value=null) {
 
 
 function startCardMenu() {
+    ite = iterator(); // create iterator
     nextCard();
 
     cssByClass("cardMenu", "display", "flex");
@@ -111,14 +112,31 @@ function nextCard() {
         console.error("No data found to show!")
         return;
     }
+
     let q = document.getElementsByClassName("questionText")[0];
     let question = q.getElementsByTagName("p")[0];
 
     let a = document.getElementsByClassName("answerText")[0];
     let answer = a.getElementsByTagName("p")[0];
 
-    let random = Math.floor(Math.random() * data.questions.length);
+    let element = ite.next();
+    if (element.done) {
+        ite = iterator(); // reset iterator
+        element = ite.next();
+    }
+    let random = element.value;
 
     question.innerHTML = data.questions[random].q;
     answer.innerHTML = data.questions[random].a;
+}
+
+function *iterator() {
+    let index = [];
+    for (let i = 0; i < data.questions.length; i++) {
+        index.push(i);
+    }
+    while (index.length > 0) {
+        let random = Math.floor(Math.random() * index.length);
+        yield index.splice(random, 1)[0];
+    }
 }
