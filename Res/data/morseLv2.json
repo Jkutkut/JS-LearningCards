@@ -1,0 +1,49 @@
+{
+    "name": "morseCode",
+    "questions": [
+        {
+            "q": "What is the Morse code for the letter A?",
+            "a": ".-"
+        },
+        {
+            "q": "What is the Morse code for the letter B?",
+            "a": "-..."
+        },
+        {
+            "q": "What is the Morse code for the letter C?",
+            "a": "-.-."
+        },
+        {
+            "q": "What is the Morse code for the letter D?",
+            "a": "-.."
+        },
+        {
+            "q": "What is the Morse code for the letter E?",
+            "a": "."
+        },
+        {
+            "q": "What is the Morse code for the letter F?",
+            "a": "..-."
+        },
+        {
+            "q": "What is the Morse code for the letter G?",
+            "a": "--."
+        },
+        {
+            "q": "What is the Morse code for the letter H?",
+            "a": "...."
+        },
+        {
+            "q": "What is the Morse code for the letter I?",
+            "a": ".."
+        },
+        {
+            "q": "What is the Morse code for the letter O?",
+            "a": "---"
+        },
+        {
+            "q": "What is the Morse code for the letter U?",
+            "a": "..-"
+        }
+    ]
+}

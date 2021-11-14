@@ -1,0 +1,109 @@
+{
+    "name": "morseCode",
+    "questions": [
+        {
+            "q": "What is the Morse code for the letter A?",
+            "a": ".-"
+        },
+        {
+            "q": "What is the Morse code for the letter B?",
+            "a": "-..."
+        },
+        {
+            "q": "What is the Morse code for the letter C?",
+            "a": "-.-."
+        },
+        {
+            "q": "What is the Morse code for the letter D?",
+            "a": "-.."
+        },
+        {
+            "q": "What is the Morse code for the letter E?",
+            "a": "."
+        },
+        {
+            "q": "What is the Morse code for the letter F?",
+            "a": "..-."
+        },
+        {
+            "q": "What is the Morse code for the letter G?",
+            "a": "--."
+        },
+        {
+            "q": "What is the Morse code for the letter H?",
+            "a": "...."
+        },
+        {
+            "q": "What is the Morse code for the letter I?",
+            "a": ".."
+        },
+        {
+            "q": "What is the Morse code for the letter J?",
+            "a": ".---"
+        },
+        {
+            "q": "What is the Morse code for the letter K?",
+            "a": "-.-"
+        },
+        {
+            "q": "What is the Morse code for the letter L?",
+            "a": ".-.."
+        },
+        {
+            "q": "What is the Morse code for the letter M?",
+            "a": "--"
+        },
+        {
+            "q": "What is the Morse code for the letter N?",
+            "a": "-."
+        },
+        {
+            "q": "What is the Morse code for the letter O?",
+            "a": "---"
+        },
+        {
+            "q": "What is the Morse code for the letter P?",
+            "a": ".--."
+        },
+        {
+            "q": "What is the Morse code for the letter Q?",
+            "a": "--.-"
+        },
+        {
+            "q": "What is the Morse code for the letter R?",
+            "a": ".-."
+        },
+        {
+            "q": "What is the Morse code for the letter S?",
+            "a": "..."
+        },
+        {
+            "q": "What is the Morse code for the letter T?",
+            "a": "-"
+        },
+        {
+            "q": "What is the Morse code for the letter U?",
+            "a": "..-"
+        },
+        {
+            "q": "What is the Morse code for the letter V?",
+            "a": "...-"
+        },
+        {
+            "q": "What is the Morse code for the letter W?",
+            "a": ".--"
+        },
+        {
+            "q": "What is the Morse code for the letter X?",
+            "a": "-..-"
+        },
+        {
+            "q": "What is the Morse code for the letter Y?",
+            "a": "-.--"
+        },
+        {
+            "q": "What is the Morse code for the letter Z?",
+            "a": "--.."
+        }
+    ]
+}

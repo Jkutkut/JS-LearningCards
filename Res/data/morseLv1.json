@@ -1,0 +1,25 @@
+{
+    "name": "morseCode",
+    "questions": [
+        {
+            "q": "What is the Morse code for the letter A?",
+            "a": ".-"
+        },
+        {
+            "q": "What is the Morse code for the letter E?",
+            "a": "."
+        },
+        {
+            "q": "What is the Morse code for the letter I?",
+            "a": ".."
+        },
+        {
+            "q": "What is the Morse code for the letter O?",
+            "a": "---"
+        },
+        {
+            "q": "What is the Morse code for the letter U?",
+            "a": "..-"
+        }
+    ]
+}
