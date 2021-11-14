@@ -89,8 +89,15 @@ function fileIsValid(file) {
 function cssByClass(className, property, value=null) {
     var elements = document.getElementsByClassName(className);
     if (value) {
-        for (var i = 0; i < elements.length; i++) {
-            elements[i].style[property] = value;
+        if (property.startsWith("--")) { // If property is a CSS variable
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].style.setProperty(property, value);
+            }
+        }
+        else { // If property is a CSS property
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].style[property] = value;
+            }
         }
     }
     else {
