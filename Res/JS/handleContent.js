@@ -27,11 +27,18 @@ window.onload = () => {
         false
     );
 
+    // Attempt to load data from local storage
     data = localStorage['learningCardsData'];
+    // If data is in local storage, show option to restore it
     if (data) {
+        data = JSON.parse(data); // convert to object
+        
         let continueBtn = document.getElementsByClassName("continueData")[0];
+        
+        // Change text of continueBtn to the name of the data
+        continueBtn.getElementsByTagName("p")[0].innerHTML = data.name;
+        
         continueBtn.addEventListener('click', () => {
-            data = JSON.parse(data); // convert to object
             startCardMenu();
         });
     }
