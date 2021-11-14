@@ -62,5 +62,19 @@ function startCardMenu() {
 
 
 function nextCard() {
-    console.log("nextCard");
+    if (!data || !data.questions) {
+        console.error("No data found to show!")
+        return;
+    }
+    let q = document.getElementsByClassName("questionText")[0];
+    let question = q.getElementsByTagName("p")[0];
+
+    let a = document.getElementsByClassName("answerText")[0];
+    let answer = a.getElementsByTagName("p")[0];
+
+    let random = Math.floor(Math.random() * data.questions.length);
+    console.log(random);
+
+    question.innerHTML = data.questions[random].q;
+    answer.innerHTML = data.questions[random].a;
 }
