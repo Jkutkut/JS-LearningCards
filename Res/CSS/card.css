@@ -44,7 +44,9 @@ body {
     background: none;
 }
 
-.card .card-face {
+.card-face {
+    --rotation-animation-amount: 180deg;
+    /* --rotation-animation-amount: 0deg; */
 
     border-radius: var(--border-radius);
     transition: all 0.8s ease;
@@ -71,11 +73,11 @@ body {
 }
 
 .card:hover .front {
-    transform: rotateY(180deg);
+    transform: rotateY(calc(0deg + var(--rotation-animation-amount)));
 }
 
 .card:hover .back {
-    transform: rotateY(0deg);
+    transform: rotateY(calc(var(--rotation-animation-amount) - 180deg));
 }
 
 .textLabel {
