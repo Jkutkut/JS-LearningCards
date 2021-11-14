@@ -1,0 +1,60 @@
+.loadMenu {
+    display: flex;
+    flex-direction: column;
+    margin: var(--margin);
+ 
+    margin: var(--margin);
+}
+
+.loadMenuBar {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.loadMenuBar div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    width: 50%;
+    min-width: 12rem;
+    height: 100%;
+    
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    background: var(--card-front-background-image);
+    border-radius: var(--border-radius);
+
+    transition: all 0.3s ease;
+}
+
+.loadMenuBar div:hover {
+    transform: scale(1.1);
+}
+
+.newData {
+    margin: var(--margin);
+    margin-left: 0;
+}
+
+.continueData {
+    margin: var(--margin);
+    margin-right: 0;
+}
+
+/* dragDropData */
+.dragDropData {
+    display: flex;
+    justify-content: center;
+
+    height: 30rem;
+
+    padding: var(--margin);
+    
+    background: none;
+    opacity: 0.5;
+    border: 0.2rem solid black;
+    border-radius: var(--border-radius);
+}
