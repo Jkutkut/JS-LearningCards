@@ -1,5 +1,6 @@
 var data;
 var ite;
+var mouseOver = true;
 
 window.onload = () => {
     // Drag and drop logic
@@ -47,8 +48,25 @@ window.onload = () => {
 
         // Hide continue data button
         cssByClass("continueData", "display", "none");
-
     }
+
+    // When card mouse exited or entered, rotate card
+    document.getElementsByClassName("card")[0].addEventListener(
+        'mouseleave',
+        () => {
+            cssByClass("card-face", "--rotation-animation-amount", "180deg");
+            mouseOver = false;
+        },
+        false
+    );
+
+    document.getElementsByClassName("card")[0].addEventListener(
+        'mouseenter',
+        () => {
+            mouseOver = true;
+        },
+        false
+    );
 }
 
 function attemptLoadFile(fileList) {
@@ -110,11 +128,11 @@ function cssByClass(className, property, value=null) {
 
 
 function startCardMenu() {
-    ite = iterator(); // create iterator
-    nextCard();
-
     cssByClass("cardMenu", "display", "flex");
     cssByClass("loadMenu", "display", "none");
+
+    ite = iterator(); // create iterator
+    nextCard();
 
     // When element with class newCardBtn pressed
     document.onclick = nextCard;
@@ -127,18 +145,26 @@ function nextCard() {
         return;
     }
 
+    // Get html elements
     let q = document.getElementsByClassName("questionText")[0];
     let question = q.getElementsByTagName("p")[0];
 
     let a = document.getElementsByClassName("answerText")[0];
     let answer = a.getElementsByTagName("p")[0];
 
-    let element = ite.next();
-    if (element.done) {
+
+    if (mouseOver) { // if mouse over card
+        // From now on, the card can not rotate (to prevent cheating)
+        cssByClass("card-face", "--rotation-animation-amount", "0deg");
+    }
+
+    // Update elements with the new question
+    let element = ite.next(); // get next question-index object
+    if (element.done) { // If no more questions
         ite = iterator(); // reset iterator
         element = ite.next();
     }
-    let random = element.value;
+    let random = element.value; // get random index
 
     question.innerHTML = data.questions[random].q;
     answer.innerHTML = data.questions[random].a;
