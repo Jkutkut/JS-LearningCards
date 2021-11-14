@@ -2,8 +2,7 @@ var data;
 
 
 window.onload = () => {
-    data = localStorage['learningCardsData'];
-
+    // Drag and drop logic
     document.addEventListener("dragover", (event) => {
         event.stopPropagation();
         event.preventDefault();
@@ -14,14 +13,21 @@ window.onload = () => {
     document.addEventListener('drop', (event) => {
         event.stopPropagation();
         event.preventDefault();
-        const fileList = event.dataTransfer.files;
-        console.log(fileList);
+
+        attemptLoadFile(event.dataTransfer.files);
     });
 
-    // When loadQuestionsBtn pressed, load questions
-    let loadQuestionsBtn = document.getElementById("loadQuestionsBtn");
-    loadQuestionsBtn.addEventListener('change', readSingleFile, false);
 
+    // When loadQuestionsBtn pressed, select file and load questions
+    document.getElementById("loadQuestionsBtn").addEventListener(
+        'change',
+        (e) => {
+            attemptLoadFile(e.target.files);
+        },
+        false
+    );
+
+    data = localStorage['learningCardsData'];
     if (data) {
         data = JSON.parse(data); // convert to object
         
@@ -40,35 +46,34 @@ window.onload = () => {
     }
 }
 
-function readSingleFile(e) {
-    const file = e.target.files[0];
-    if (!file) { // If no file selected
+function attemptLoadFile(fileList) {
+    let f = fileList[0];
+    if (!fileIsValid(f)) {
         return;
     }
-
-    // if file is not a json file
-    if (!file.name.endsWith(".json") || file.type != "application/json") {
-        alert("Please select a json file with the data.");
-        return;
+    if (fileList.length > 1) {
+        alert(`Multiple files detected, using ${f.name}.`);
     }
 
     const reader = new FileReader();
-    reader.onload = function (e) {
-        let contents = e.target.result;
-        let d = JSON.parse(contents);
-
-        if (!validQuestions(d)) {
-            alert("Invalid file. The file must contain the questions.");
-            return;
-        }
-
-        localStorage['learningCardsData'] = contents;
-        console.log(data);
-        startCardMenu();
-    };
-    reader.readAsText(file);
+    reader.addEventListener('load', (event) => {
+        data = JSON.parse(event.target.result);
+        console.log("Data loaded", data);
+    });
+    reader.readAsText(f);
 }
 
+function fileIsValid(file) {
+    if (!file) {
+        return false;
+    }
+
+    if (!file.name.endsWith(".json") || file.type != "application/json") {
+        alert("Please select a json file with the data.");
+        return false;
+    }
+    return true;
+}
 
 function cssByClass(className, property, value=null) {
     var elements = document.getElementsByClassName(className);
