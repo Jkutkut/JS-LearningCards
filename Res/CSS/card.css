@@ -45,8 +45,8 @@ body {
 }
 
 .card-face {
-    --rotation-animation-amount: 180deg;
-    /* --rotation-animation-amount: 0deg; */
+    /* --rotation-animation-amount: 180deg; */
+    --rotation-animation-amount: 0deg;
 
     border-radius: var(--border-radius);
     transition: all 0.8s ease;
