@@ -28,6 +28,15 @@ window.onload = () => {
         false
     );
 
+    // When createQuestions-Btn pressed, redirect to create questions page
+    document.getElementsByClassName("createQuestions")[0].addEventListener(
+        'click',
+        () => {
+            window.location.href = "./createQuestions/createQuestions.html";
+        },
+        false
+    );
+
     // Attempt to load data from local storage
     data = localStorage['learningCardsData'];
     // If data is in local storage, show option to restore it
