@@ -41,6 +41,11 @@
     padding:2rem;
 }
 
+.card .image img {
+    max-width: 100%;
+    max-height: 80%;
+}
+
 .card .front {
     background-color: var(--card-front-background-color);
     background-image: var(--card-front-background-image);
@@ -63,4 +68,8 @@
 .textLabel {
     display: flex;
     justify-content: center;
+}
+
+.smallerLabel {
+    font-size: calc(var(--font-size) * 0.8);
 }
