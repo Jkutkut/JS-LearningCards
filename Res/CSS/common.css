@@ -1,0 +1,11 @@
+:root {
+    --bg: #1d1d1dff;
+    --margin: 1rem;
+}
+
+body {
+    background: var(--bg);
+    font-family: var(--font-family);
+    font-size: 1.5rem;
+    color: var(--font-color);
+}
