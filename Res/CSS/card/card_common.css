@@ -41,9 +41,13 @@
     padding:2rem;
 }
 
+.card .image {
+    display: flex;
+    justify-content: center;
+}
 .card .image img {
-    max-width: 100%;
-    max-height: 80%;
+    max-width: calc(80vw - 2 * var(--margin));
+    max-height: calc(80vh - 2 * var(--margin));
 }
 
 .card .front {
