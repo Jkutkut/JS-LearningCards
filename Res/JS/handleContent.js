@@ -108,15 +108,36 @@ function nextCard() {
     answer.innerHTML = data.questions[random].a;
 
     if (data.questions[random]["q-image"]) {
-        let imgID = data.questions[random]["q-image"];
+        cssByClass("questionImage", "display", "flex"); // show image
 
+        let imgID = data.questions[random]["q-image"];
         document.getElementById("questionImage").src = data.images[imgID];
+    }
+    else {
+        cssByClass("questionImage", "display", "none"); // hide image
+        
+        document.getElementById("questionImage").src = "";    
     }
 
     if (data.questions[random]["a-image"]) {
+        cssByClass("answerImage", "display", "flex"); // show image
+        
         let imgID = data.questions[random]["a-image"];
-
         document.getElementById("answerImage").src = data.images[imgID];
+    }
+    else {
+        cssByClass("answerImage", "display", "none"); // hide image
+        
+        document.getElementById("answerImage").src = "";
+    }
+
+    let aDetailContainer = document.getElementsByClassName("detailAnswerText")[0];
+    let aDetail = aDetailContainer.getElementsByTagName("p")[0];
+    if (data.questions[random]["a-detail"]) {
+        aDetail.innerHTML = data.questions[random]["a-detail"];
+    }
+    else {
+        aDetail.innerHTML = "";
     }
 }
 
