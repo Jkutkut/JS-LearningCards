@@ -106,6 +106,18 @@ function nextCard() {
 
     question.innerHTML = data.questions[random].q;
     answer.innerHTML = data.questions[random].a;
+
+    if (data.questions[random]["q-image"]) {
+        let imgID = data.questions[random]["q-image"];
+
+        document.getElementById("questionImage").src = data.images[imgID];
+    }
+
+    if (data.questions[random]["a-image"]) {
+        let imgID = data.questions[random]["a-image"];
+
+        document.getElementById("answerImage").src = data.images[imgID];
+    }
 }
 
 function *iterator() {
