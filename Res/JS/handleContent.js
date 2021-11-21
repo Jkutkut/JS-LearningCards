@@ -77,7 +77,8 @@ function startCardMenu() {
 }
 
 
-function nextCard() {
+// function nextCard() {
+function nextCard(index=null) { // ! debug code
     if (!data || !data.questions) {
         console.error("No data found to show!")
         return;
@@ -102,7 +103,8 @@ function nextCard() {
         ite = iterator(); // reset iterator
         element = ite.next();
     }
-    let random = element.value; // get random index
+    // let random = element.value; // get random index
+    let random = (index != null) ? index : element.value; // ! debug code
 
     question.innerHTML = data.questions[random].q;
     answer.innerHTML = data.questions[random].a;
