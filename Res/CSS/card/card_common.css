@@ -1,0 +1,66 @@
+:root {
+    /* Card */
+    --border-radius: max(1.5rem, 2vh);
+    
+    /* Front card */
+    --card-front-background-color: #0093E9;
+    --card-front-background-image: linear-gradient(45deg, #1e97dd 0%, #58f1e0 100%);
+
+    /* Back card */
+    --card-back-background-color: #4158D0;
+    --card-back-background-image: linear-gradient(45deg, #4158ca 0%,#c94bc0 50%, #ffca67 100%);
+}
+
+.cardMenu {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.card {
+    box-shadow: none;
+    background: none;
+}
+
+.card-face {
+    /* --rotation-animation-amount: 180deg; */
+    --rotation-animation-amount: 0deg;
+
+    border-radius: var(--border-radius);
+    transition: all 0.8s ease;
+    backface-visibility: hidden;
+
+    margin: var(--margin);
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+    padding:2rem;
+}
+
+.card .front {
+    background-color: var(--card-front-background-color);
+    background-image: var(--card-front-background-image);
+}
+
+.card .back {
+    transform: rotateY(-180deg);
+    background-color: var(--card-back-background-color);
+    background-image: var(--card-back-background-image);
+}
+
+.card:hover .front {
+    transform: rotateY(calc(0deg + var(--rotation-animation-amount)));
+}
+
+.card:hover .back {
+    transform: rotateY(calc(var(--rotation-animation-amount) - 180deg));
+}
+
+.textLabel {
+    display: flex;
+    justify-content: center;
+}
