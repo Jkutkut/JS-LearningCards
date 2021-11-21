@@ -1,6 +1,6 @@
 :root {
     /* Card */
-    --border-radius: max(1.5rem, 2vh);
+    --border-radius: max(1rem, 2vh);
     
     /* Front card */
     --card-front-background-color: #0093E9;
@@ -52,11 +52,11 @@
     background-image: var(--card-back-background-image);
 }
 
-.card:hover .front {
+.cardMenu:hover .card .front {
     transform: rotateY(calc(0deg + var(--rotation-animation-amount)));
 }
 
-.card:hover .back {
+.cardMenu:hover .card .back {
     transform: rotateY(calc(var(--rotation-animation-amount) - 180deg));
 }
 

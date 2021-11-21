@@ -5,6 +5,7 @@ var mouseOver = true;
 window.addEventListener('load', () => {
     // Attempt to load data from local storage
     data = localStorage['learningCardsData'];
+    
     // If data is in local storage, show option to restore it
     if (data) {
         data = JSON.parse(data); // convert to object
