@@ -133,7 +133,14 @@ function nextCard(index=null) { // ! debug code
 
     if (mouseOver) { // if mouse over card
         // From now on, the card can not rotate (to prevent cheating)
+        cssByClass("card-face", "transition", "all 0s ease");
         cssByClass("card-face", "--rotation-animation-amount", "0deg");
+        setTimeout(
+            () => {
+                cssByClass("card-face", "transition", "all 0.8s ease"); // ! Hardcoded
+            },
+            200
+        )
     }
 
     // Update elements with the new question
