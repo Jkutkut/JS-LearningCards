@@ -61,11 +61,11 @@
     background-image: var(--card-back-background-image);
 }
 
-.cardMenu:hover .card .front {
+body:hover .front {
     transform: rotateY(calc(0deg + var(--rotation-animation-amount)));
 }
 
-.cardMenu:hover .card .back {
+body:hover .back {
     transform: rotateY(calc(var(--rotation-animation-amount) - 180deg));
 }
 
