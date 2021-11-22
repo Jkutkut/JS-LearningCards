@@ -104,7 +104,7 @@ function nextCard(index=null) { // ! debug code
         element = ite.next();
     }
     // let random = element.value; // get random index
-    let random = (index != null) ? index : element.value; // ! debug code
+    let random = (typeof index == 'number') ? index : element.value; // ! debug code
 
     question.innerHTML = data.questions[random].q;
     answer.innerHTML = data.questions[random].a;
@@ -116,9 +116,9 @@ function nextCard(index=null) { // ! debug code
         document.getElementById("questionImage").src = data.images[imgID];
     }
     else {
-        cssByClass("questionImage", "display", "none"); // hide image
-        
-        document.getElementById("questionImage").src = "";    
+        cssByClass("questionImage", "display", "none"); // hide image        
+
+        document.getElementById("questionImage").src = "";
     }
 
     if (data.questions[random]["a-image"]) {
