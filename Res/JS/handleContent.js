@@ -49,14 +49,15 @@ function attemptLoadFile(fileList) {
         startCardMenu();
     });
     console.log("Atempting to load file: ", f.name);
+    console.log(f);
     reader.readAsText(f);
 }
 
 function storeFile(jsonFile) {
     let content = JSON.parse(jsonFile);
     
-    console.log("Clearing previous file data.");
-    localStorage.clear(); // Clear previous file
+    // console.log("Clearing previous file data.");
+    // localStorage.clear(); // Clear previous file
 
     // Get the questions
     data = {
@@ -64,23 +65,26 @@ function storeFile(jsonFile) {
         questions: content.questions
     };
 
-    // Store them on localStorage
-    console.log("Storing new data");
-    localStorage["learningCardsData"] = JSON.stringify(data);
+    // // Store them on localStorage
+    // console.log("Storing new data");
+    // localStorage["learningCardsData"] = JSON.stringify(data);
 
-    // Store imgs in independent cookies.
-    console.log("Storing imgs");
-    let imgIds = Object.keys(content.images);
-    for (let i = 0; i < imgIds.length; i++) {
-        console.log(content.images[imgIds[i]]);
-        localStorage[imgIds[i]] = content.images[imgIds[i]];
-    }
+    // // Store imgs in independent cookies.
+    // console.log("Storing imgs");
+    // let imgIds = Object.keys(content.images);
+    // for (let i = 0; i < imgIds.length; i++) {
+    //     // console.log(content.images[imgIds[i]]);
+    //     localStorage[imgIds[i]] = content.images[imgIds[i]];
+    // }
+
+    imgs = content.images;
 
     console.log("File fully loaded and stored")
 }
 
 function dataStored() {
-    return localStorage["learningCardsData"];
+    // return localStorage["learningCardsData"];
+    return undefined;
 }
 
 function clearLocalStorage() {
@@ -148,7 +152,8 @@ function nextCard(index=null) { // ! debug code
         cssByClass("questionImage", "display", "flex"); // show image
 
         let imgID = data.questions[random]["q-image"];
-        document.getElementById("questionImage").src = data.images[imgID];
+        document.getElementById("questionImage").src = imgs[imgID];
+        // document.getElementById("questionImage").src = data.images[imgID];
     }
     else {
         cssByClass("questionImage", "display", "none"); // hide image        
@@ -160,7 +165,8 @@ function nextCard(index=null) { // ! debug code
         cssByClass("answerImage", "display", "flex"); // show image
         
         let imgID = data.questions[random]["a-image"];
-        document.getElementById("answerImage").src = data.images[imgID];
+        document.getElementById("answerImage").src = imgs[imgID];
+        // document.getElementById("answerImage").src = data.images[imgID];
     }
     else {
         cssByClass("answerImage", "display", "none"); // hide image
