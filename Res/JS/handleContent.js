@@ -52,6 +52,18 @@ function attemptLoadFile(fileList) {
     reader.readAsText(f);
 }
 
+function storeInLocalStorage(jsonFile) {
+
+}
+
+function loadFromLocalStorage() {
+
+}
+
+function clearLocalStorage() {
+    localStorage.clear();
+}
+
 function fileIsValid(file) {
     if (!file) {
         return false;
