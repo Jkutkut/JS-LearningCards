@@ -1,10 +1,12 @@
 var data;
+var imgs;
+
 var ite;
 var mouseOver = true;
 
 window.addEventListener('load', () => {
     // Attempt to load data from local storage
-    data = localStorage['learningCardsData'];
+    data = dataStored();
     
     // If data is in local storage, show option to restore it
     if (data) {
@@ -40,24 +42,45 @@ function attemptLoadFile(fileList) {
 
     const reader = new FileReader();
     reader.addEventListener('load', (event) => {
-        // get file content
-        data = JSON.parse(event.target.result);
+        
+        // get file content and save data to local storage
+        storeFile(event.target.result);
 
-        // save data to local storage
-        localStorage['learningCardsData'] = event.target.result;
-
-        console.log("Data loaded", data);
         startCardMenu();
     });
+    console.log("Atempting to load file: ", f.name);
     reader.readAsText(f);
 }
 
-function storeInLocalStorage(jsonFile) {
+function storeFile(jsonFile) {
+    let content = JSON.parse(jsonFile);
+    
+    console.log("Clearing previous file data.");
+    localStorage.clear(); // Clear previous file
 
+    // Get the questions
+    data = {
+        name: content.name,
+        questions: content.questions
+    };
+
+    // Store them on localStorage
+    console.log("Storing new data");
+    localStorage["learningCardsData"] = JSON.stringify(data);
+
+    // Store imgs in independent cookies.
+    console.log("Storing imgs");
+    let imgIds = Object.keys(content.images);
+    for (let i = 0; i < imgIds.length; i++) {
+        console.log(content.images[imgIds[i]]);
+        localStorage[imgIds[i]] = content.images[imgIds[i]];
+    }
+
+    console.log("File fully loaded and stored")
 }
 
-function loadFromLocalStorage() {
-
+function dataStored() {
+    return localStorage["learningCardsData"];
 }
 
 function clearLocalStorage() {
