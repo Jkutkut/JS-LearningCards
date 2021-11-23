@@ -1,33 +1,52 @@
 :root {
-    --min-width: 25rem;
+    --min-width: 30rem;
+
+    --size: 10px;
+    --bigSize: calc(var(var(--size)) * 2)
+}
+
+.card-face {
+    position: relative;
+    width: 100px;
+    height: fit-content;
+    overflow: hidden;
+}
+
+.card .back {
+    transform: rotateY(0deg);
+
 }
 
 .parentDiv {
-    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
 
-    overflow-x: auto;
+    overflow-x: scroll;
 }
 
 .parentDiv div {
-    height: 100%;
     min-width: var(--min-width);
+    height: 100%;
     margin: 0.3rem;
+
+    overflow-x: scroll;
+}
+.parentDiv div div {
+    overflow-x: hidden;
 }
 
 .editor {
-    background: rgb(124, 17, 17);
+    background: rgb(195, 36, 36);
 }
 
 .frontMenu {
     margin-left: 0rem;
-    background: rgb(15, 15, 148);
+    background: rgb(27, 27, 216);
 }
 
 .backMenu {
     margin-left: 0rem;
-    background: rgb(3, 58, 3);
+    background: rgb(19, 206, 19);
 }
