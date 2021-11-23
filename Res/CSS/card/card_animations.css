@@ -1,0 +1,18 @@
+.card-face {
+    /* --rotation-animation-amount: 180deg; */
+    --rotation-animation-amount: 0deg;
+    
+    transition: all 0.8s ease;
+}
+
+.card .back {
+    transform: rotateY(-180deg);
+}
+
+body:hover .front {
+    transform: rotateY(calc(0deg + var(--rotation-animation-amount)));
+}
+
+body:hover .back {
+    transform: rotateY(calc(var(--rotation-animation-amount) - 180deg));
+}

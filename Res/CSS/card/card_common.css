@@ -23,11 +23,8 @@
 }
 
 .card-face {
-    /* --rotation-animation-amount: 180deg; */
-    --rotation-animation-amount: 0deg;
-
     border-radius: var(--border-radius);
-    transition: all 0.8s ease;
+    
     backface-visibility: hidden;
 
     margin: var(--margin);
@@ -56,17 +53,8 @@
 }
 
 .card .back {
-    transform: rotateY(-180deg);
     background-color: var(--card-back-background-color);
     background-image: var(--card-back-background-image);
-}
-
-body:hover .front {
-    transform: rotateY(calc(0deg + var(--rotation-animation-amount)));
-}
-
-body:hover .back {
-    transform: rotateY(calc(var(--rotation-animation-amount) - 180deg));
 }
 
 .textLabel {
