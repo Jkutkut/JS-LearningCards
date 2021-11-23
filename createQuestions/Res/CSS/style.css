@@ -5,40 +5,54 @@
     --bigSize: calc(var(var(--size)) * 2)
 }
 
-.card-face {
-    position: relative;
-    width: 100px;
-    height: fit-content;
-    overflow: hidden;
-}
-
-.card .back {
-    transform: rotateY(0deg);
-
-}
 
 .parentDiv {
     height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
-
-    overflow-x: scroll;
 }
 
-.parentDiv div {
-    min-width: var(--min-width);
-    height: 100%;
-    margin: 0.3rem;
-
-    overflow-x: scroll;
-}
-.parentDiv div div {
+.parentDiv > div {
+    width: 100%;
     overflow-x: hidden;
+}
+
+.card {
+    overflow: hidden;
+    overflow-x: hidden;
+
+    background: rgb(138, 138, 245);
+}
+
+.card-face {
+    position: auto;
+
+    /* Reset top, bottom, right and left */
+    top: auto;
+    bottom: auto;
+    right: auto;
+    left: auto;
+
+    height: fit-content;
+}
+
+
+.card .image img {
+    /* max-width: calc(30vh - 2 * var(--margin)); */
+    max-width: 30vh;
+    /* max-height: calc(100% - 2 * var(--margin)); */
+    max-height: 30vh;
 }
 
 .editor {
     background: rgb(195, 36, 36);
+}
+
+
+.preview {
+    display: flex;
+    flex-direction: column;
 }
 
 .frontMenu {
