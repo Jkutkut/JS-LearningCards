@@ -9,10 +9,10 @@
     transform: rotateY(-180deg);
 }
 
-body:hover .front {
+body:hover .front, body:active .front {
     transform: rotateY(calc(0deg + var(--rotation-animation-amount)));
 }
 
-body:hover .back {
+body:hover .back, body:active .back {
     transform: rotateY(calc(var(--rotation-animation-amount) - 180deg));
 }
