@@ -28,7 +28,25 @@ window.addEventListener('load', () => {
         cssByClass("continueData", "display", "none");
     }
 
-    
+    if (!isMobile()) {
+        // When card mouse exited or entered, rotate card
+        document.getElementsByClassName("card")[0].addEventListener(
+            'mouseleave',
+            () => {
+                cssByClass("card-face", "--rotation-animation-amount", "180deg");
+                mouseOver = false;
+            },
+            false
+        );
+
+        document.getElementsByClassName("card")[0].addEventListener(
+            'mouseenter',
+            () => {
+                mouseOver = true;
+            },
+            false
+        );
+    }
 });
 
 function attemptLoadFile(fileList) {
@@ -103,6 +121,9 @@ function fileIsValid(file) {
     return true;
 }
 
+function isMobile() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
 
 function startCardMenu() {
     cssByClass("cardMenu", "display", "flex");
@@ -111,8 +132,16 @@ function startCardMenu() {
     ite = iterator(); // create iterator
     nextCard();
 
-    // When element with class newCardBtn pressed
-    document.onclick = nextCard;
+    // If the device is a mobile device
+    if( isMobile() ) {
+        console.log("Mobile device detected");
+
+    }
+    else {
+        // When element with class newCardBtn pressed
+        console.log("Desktop device detected");
+        document.onclick = nextCard;
+    }
 }
 
 

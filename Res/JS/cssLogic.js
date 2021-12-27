@@ -8,24 +8,6 @@ window.addEventListener('load', () => {
         false
     );
 
-    // When card mouse exited or entered, rotate card
-    document.getElementsByClassName("card")[0].addEventListener(
-        'mouseleave',
-        () => {
-            cssByClass("card-face", "--rotation-animation-amount", "180deg");
-            mouseOver = false;
-        },
-        false
-    );
-
-    document.getElementsByClassName("card")[0].addEventListener(
-        'mouseenter',
-        () => {
-            mouseOver = true;
-        },
-        false
-    );
-
     // Drag and drop logic
     // When file is dragged over the screen
     document.addEventListener("dragover", (event) => {
