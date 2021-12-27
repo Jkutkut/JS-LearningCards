@@ -1,0 +1,33 @@
+.mobile-buttons {
+    display: none;
+}
+
+/* Style only for mobile devices */
+@media (pointer: coarse) {
+    .mobile-buttons {
+        display: flex;
+        
+        justify-content: center;
+        align-items: center;
+
+        position: absolute;
+        bottom: 0;
+        
+        width: calc(50vw - 6rem);
+        height: 15rem;
+
+        margin: 5rem;
+        
+        border-radius: 5rem;
+        color: black;
+        background: rgba(197, 197, 197, 0.726);
+    }
+
+    #rotate-btn {
+        left: 0;
+    }
+
+    #next-btn {
+        right: 0;
+    }
+}
