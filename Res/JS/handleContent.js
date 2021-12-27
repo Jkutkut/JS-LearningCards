@@ -135,7 +135,25 @@ function startCardMenu() {
     // If the device is a mobile device
     if( isMobile() ) {
         console.log("Mobile device detected");
+        document.getElementById("rotate-btn").addEventListener(
+            "click",
+            () => {
+                console.log("Rotate button clicked");
+                let prev = document.getElementsByClassName("card-face")[0]
+                prev = prev.style.getPropertyValue("--rotation-animation-amount");
+                if (prev == "0deg") {
+                    cssByClass("card-face", "--rotation-animation-amount", "180deg");
+                }
+                else {
+                    cssByClass("card-face", "--rotation-animation-amount", "0deg");
+                }
+            }
+        );
 
+        document.getElementById("next-btn").addEventListener(
+            "click",
+            nextCard
+        );
     }
     else {
         // When element with class newCardBtn pressed
