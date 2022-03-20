@@ -73,9 +73,11 @@ function attemptLoadFile(fileList) {
 
 function storeFile(jsonFile) {
     let content = JSON.parse(jsonFile);
+
+    console.log(new Blob([jsonFile]).size);
     
-    // console.log("Clearing previous file data.");
-    // localStorage.clear(); // Clear previous file
+    console.log("Clearing previous file data.");
+    localStorage.clear(); // Clear previous file
 
     // Get the questions
     data = {
@@ -97,7 +99,7 @@ function storeFile(jsonFile) {
 
     imgs = content.images;
 
-    console.log("File fully loaded and stored")
+    console.log("File fully loaded");
 }
 
 function dataStored() {
