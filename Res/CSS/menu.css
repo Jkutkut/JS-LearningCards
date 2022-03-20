@@ -83,6 +83,11 @@ div .menuBtn:hover {
 }
 
 .createQuestions {
-    --w: 100%;
-    margin-top: 4rem;
+    /* Logic btn on the top of the screen */
+    margin: var(--margin);
+    margin-right: 0;
+    
+    /* Logic for btn on the bottom of the screen */
+    /* --w: 100%; */
+    /* margin-top: 4rem; */
 }

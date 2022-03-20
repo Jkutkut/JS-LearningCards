@@ -41,6 +41,15 @@
     padding:2rem;
 }
 
+.card .image {
+    display: flex;
+    justify-content: center;
+}
+.card .image img {
+    max-width: calc(80vw - 2 * var(--margin));
+    max-height: calc(80vh - 2 * var(--margin));
+}
+
 .card .front {
     background-color: var(--card-front-background-color);
     background-image: var(--card-front-background-image);
@@ -52,15 +61,19 @@
     background-image: var(--card-back-background-image);
 }
 
-.cardMenu:hover .card .front {
+body:hover .front {
     transform: rotateY(calc(0deg + var(--rotation-animation-amount)));
 }
 
-.cardMenu:hover .card .back {
+body:hover .back {
     transform: rotateY(calc(var(--rotation-animation-amount) - 180deg));
 }
 
 .textLabel {
     display: flex;
     justify-content: center;
+}
+
+.smallerLabel {
+    font-size: calc(var(--font-size) * 0.8);
 }
